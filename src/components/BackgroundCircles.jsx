@@ -55,6 +55,15 @@ const BackgroundCircles = ({ className = "" }) => {
           filter: "blur(calc(60px + 2vw))",
         }}
       />
+      {[...Array(10)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 rounded-full bg-pink-200"
+          animate={{ opacity: [0, 1, 0], scale: [1, 1.5, 1] }}
+          transition={{ duration: 2, repeat: Infinity, delay: Math.random() * 2 }}
+          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+        />
+      ))}
     </div>
   );
 };

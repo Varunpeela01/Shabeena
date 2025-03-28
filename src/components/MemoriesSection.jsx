@@ -19,7 +19,7 @@ const MemoriesSection = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center py-4 px-4 sm:px-6 mt-6 w-full max-w-[801px] text-base bg-white rounded-3xl shadow-[0px_10px_30px_rgba(255,105,180,0.1)]">
+    <div className="flex flex-col justify-center py-4 px-4 sm:px-6 mt-6 w-full max-w-[600px] text-base bg-white rounded-3xl shadow-[0px_10px_30px_rgba(255,105,180,0.1)]">
       {memories.map((memory, index) => (
         <motion.div
           key={memory.date}
@@ -28,7 +28,7 @@ const MemoriesSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
         >
-          <TimelineEntry date={memory.date} description={memory.description} />
+          <TimelineEntry date={memory.date} description={memory.description} index={index} />
         </motion.div>
       ))}
     </div>

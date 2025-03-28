@@ -22,12 +22,12 @@ const WhyILoveYouSection = () => {
       {reasons.map((reason, index) => (
         <motion.div
           key={reason.title}
-          className={`flex flex-col sm:flex-row sm:gap-5 items-start py-3 px-3 w-full rounded-xl bg-pink-400 bg-opacity-10 ${
+          className={`flex flex-col sm:flex-row sm:gap-5 items-start py-3 px-3 w-full rounded-xl bg-pink-400 bg-opacity-10 card-hover ${
             index > 0 ? "mt-2" : ""
           }`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
+          initial={{ scale: 0.8, rotate: -10, opacity: 0 }}
+          animate={{ scale: 1, rotate: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
         >
           <div className="font-semibold text-pink-400 uppercase">
             {reason.title}
