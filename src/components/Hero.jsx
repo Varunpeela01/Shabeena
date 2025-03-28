@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import BackgroundCircles from "./BackgroundCircles";
 
 const FloatingHearts = () => (
-  <div className="absolute inset-0 pointer-events-none">
+  <div className="absolute inset-0 pointer-events-none z-50">
     {[...Array(5)].map((_, i) => (
       <motion.div
         key={i}
@@ -20,7 +20,7 @@ const FloatingHearts = () => (
 
 const PulsingHeart = () => (
   <motion.span
-    className="text-pink-400 text-4xl absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+    className="text-pink-400 text-4xl absolute bottom-10 left-1/2 transform -translate-x-1/2 z-50"
     animate={{ scale: [1, 1.2, 1] }}
     transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
   >
@@ -39,7 +39,7 @@ const FireworkHearts = () => {
   };
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute inset-0 pointer-events-none z-50">
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
@@ -51,7 +51,7 @@ const FireworkHearts = () => {
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
-          transition={{ delay: i * 0.3, repeat: 1 }}
+          transition={{ delay: i * 0.3, repeat: Infinity, repeatDelay: 2 }}
         >
           ♥
         </motion.div>
@@ -62,12 +62,12 @@ const FireworkHearts = () => {
 
 const Hero = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-screen bg-red-50/50">
+    <div className="relative flex flex-col items-center justify-center w-full h-screen bg-red-50/50 overflow-hidden">
       <BackgroundCircles className="z-0" />
       <FireworkHearts />
       <FloatingHearts />
       <motion.h1
-        className="font-medium text-xs sm:text-sm md:text-base lg:text-lg text-pink-400 text-center typewriter"
+        className="font-medium text-xs sm:text-sm md:text-base lg:text-lg text-pink-400 text-center typewriter z-10"
         initial={{ top: "50%", transform: "translate(-50%, -50%)" }}
         animate={{ top: "14vh", transform: "translate(-50%, 0)" }}
         transition={{ delay: 2, duration: 1, ease: "easeInOut" }}
@@ -85,7 +85,7 @@ const Hero = () => {
       <motion.img
         src="/person.png"
         alt="Person in pink dress"
-        className="heart-image"
+        className="heart-image z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

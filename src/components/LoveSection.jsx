@@ -4,51 +4,6 @@ import BackgroundCircles from "./BackgroundCircles";
 import WhyILoveYouSection from "./WhyILoveYouSection";
 import MemoriesSection from "./MemoriesSection";
 
-const HeartBurst = ({ trigger }) => (
-  <motion.div
-    className="absolute text-pink-400 text-3xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-    key={trigger}
-    initial={{ opacity: 1, scale: 1 }}
-    animate={{ opacity: 0, scale: 2 }}
-    transition={{ duration: 0.5 }}
-  >
-    ♥
-  </motion.div>
-);
-
-const Confetti = ({ trigger }) => {
-  const confettiVariants = {
-    initial: { y: -20, opacity: 1 },
-    animate: {
-      y: 100,
-      opacity: 0,
-      rotate: [0, 360],
-      transition: { duration: 1.5, ease: "easeOut" },
-    },
-  };
-
-  return (
-    <div className="absolute inset-0 pointer-events-none">
-      {[...Array(10)].map((_, i) => (
-        <motion.div
-          key={`${trigger}-${i}`}
-          className="absolute text-pink-400 text-xl"
-          initial="initial"
-          animate="animate"
-          variants={confettiVariants}
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: "10%",
-          }}
-          transition={{ delay: i * 0.1 }}
-        >
-          {i % 2 === 0 ? "♥" : "✨"}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
 const LoveSection = () => {
   const [activeTab, setActiveTab] = useState("whyILoveYou");
 
@@ -89,8 +44,6 @@ const LoveSection = () => {
             Why I Love You
           </button>
         </motion.div>
-        <HeartBurst trigger={activeTab} />
-        <Confetti trigger={activeTab} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
