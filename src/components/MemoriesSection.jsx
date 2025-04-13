@@ -14,7 +14,7 @@ const MemoriesSection = () => {
     },
     {
       date: "March 07, 2025",
-      description: "Our Third meet, with a forgettable memories!",
+      description: "Our Third meet, with a unforgettable memories!",
     },
   ];
 

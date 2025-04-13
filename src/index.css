@@ -103,7 +103,7 @@ html, body {
 /* Custom image sizes for different devices */
 .heart-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   object-fit: contain;
   object-position: bottom;
   position: absolute;
